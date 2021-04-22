@@ -1,0 +1,35 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Chat</title>
+</head>
+<body>
+  <center><h1>Share, Join and Chat</h1></center>
+    <h2>Click On The Button to share the chat link with your friend with whom you want to chat:</h2>
+    <a id="share" href=""><button style="background:#25d366;width:100%;border: 2.5px solid black;"><img src="Whatsapp.png" width="50" ></button></a><br>
+    <h2 >If You have shared, then click on the button to join that chat:</h2> 
+   
+    <button style="background:#25d366;width:100%;border: 2.5px solid black;" onclick="window.open('perchat.html?'+getCookie('usernaam'))"><h2 style="color: white;">Join Chat</h2></button>
+    <script>
+        function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i < ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  }
+        document.getElementById("share").setAttribute('href',"whatsapp://send?text=Hey Friend, Let's Chat On: " +location.origin+"/perchat.html?"+getCookie("usernaam"))
+  
+   </script>
+</body>
+</html>
